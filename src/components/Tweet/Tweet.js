@@ -7,12 +7,24 @@ import LikeButton from '../LikeButton';
 import Action from './Action';
 import TweetActionIcon from './TweetActionIcon';
 
+import format from "date-fns/format";
+
 const propTypes = {
   displayName: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   avatarSrc: PropTypes.string.isRequired,
   tweetContents: PropTypes.string.isRequired,
+  timestamp: PropTypes.object.isRequired,
+  numOfRetweets: PropTypes.number.isRequired,
+  numOfLikes: PropTypes.number.isRequired,
+
+  isLikedByCurrentUser: PropTypes.bool.isRequired,
+  isRetweetedByCurrentUser: PropTypes.bool.isRequired,
+  handleToggleLike: PropTypes.func.isRequired,
+  handleToggleRetweet: PropTypes.func.isRequired,
 };
+
+// const date = new Date();
 
 const Tweet = ({
   displayName,
@@ -38,6 +50,12 @@ const Tweet = ({
       </Header>
 
       <TweetContents>{tweetContents}</TweetContents>
+
+      <Timestamp>{format(timestamp, "h:mm A · MMM Mo, YYYY")}</Timestamp>
+
+      <Divider />
+      
+      <Stats><b>{numOfRetweets}</b>Retweets <b>{numOfLikes}</b>Likes</Stats>
 
       <Divider />
 

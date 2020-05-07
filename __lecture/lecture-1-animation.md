@@ -75,7 +75,10 @@ Tasteful use of animation can make your work stand out.
 ```css
 .some-class {
   opacity: 0;
-  transition: opacity 500ms;
+  transition: opacity 500ms cubic-bezier;
+}
+.some-class:hover {
+  opacity: 1;
 }
 ```
 
@@ -341,7 +344,7 @@ const Demo = () => {
           background: 'red',
           width: 50,
           height: 50,
-          ...style,
+          ...style, //...style copies style^ into here
         }}
         onClick={() => setToggled(!toggled)}
       />

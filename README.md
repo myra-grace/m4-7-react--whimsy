@@ -389,9 +389,9 @@ Inside `LikeButton`, we want to render a bunch of confetti pieces. We can make u
 ```js
 <Wrapper>
   {/* Other stuff ✂️ */}
-  {range(12).map(i => (
-    <ConfettiPiece key={i} />
-  ))}
+  {range(12).map(i => {
+    return <ConfettiPiece key={i} />
+  })}
 </Wrapper>
 ```
 
