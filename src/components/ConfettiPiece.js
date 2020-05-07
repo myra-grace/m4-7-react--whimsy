@@ -6,8 +6,18 @@ import { Particle } from './Particle';
 export const ConfettiPiece = ({ angle, distance, color }) => {
     return (
         <CenteredWithinParent>
-            <Particle angle={angle} distance={distance}>
-                <Circle />
+            <Particle 
+                angle={angle} 
+                startDistance={distance * 2}
+                endDistance={distance}
+            >
+                <Circle 
+                style={{
+                    width: 10,
+                    height: 10,
+                    background: color,
+                }}
+                />
             </Particle>
         </CenteredWithinParent>
     )
@@ -21,6 +31,5 @@ const CenteredWithinParent = styled.div`
 `;
 
 const Circle = styled.div`
-    bacground-color: red;
     border-radius: 50%;
 `;

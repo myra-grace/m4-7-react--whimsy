@@ -33,11 +33,7 @@ const Wrapper = styled.div`
     border-radius: 50%;
 
     @media (prefers-reduced-motion: no-preference) {
-        animation: ${color} 500ms ease-in forwards, ${size} 300ms ease-in forwards;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        display: none;
+        animation: ${color} 300ms ease-in forwards, ${size} 300ms ease-in forwards;
     }
 `;
 

@@ -27,8 +27,9 @@ const LikeButton = ({ isLiked, size = 40 }) => {
 
       <MoveBackward>
       {isLiked && <PoppingCircle size={size} color="#E790F7" />}
-      
+      </MoveBackward>
 
+      <Base>
       {isLiked &&
             range(12).map(i => (
             <ConfettiPiece 
@@ -38,7 +39,7 @@ const LikeButton = ({ isLiked, size = 40 }) => {
                 color={PARTICLE_COLORS[0]}
             />
             ))}
-      </MoveBackward>
+      </Base>
     </Wrapper>
   );
 };
@@ -48,14 +49,26 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: absolute;
+  z-index: 3;
+
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
 `;
 
 const BringForeward = styled.div`
   position: absolute;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const MoveBackward = styled.div`
+  position: absolute;
+  z-index: 1;
+`;
+
+const Base = styled.div`
   position: absolute;
   z-index: 0;
 `;
